@@ -29,19 +29,24 @@
     - name: Print a Variable
       ansible.builtin.debug:
         msg: "URL = {{URL}}"
-        
-        - name: Demo on Facts variables
+
+- name: Demo on facts
   hosts: all
   tasks:
-    - name: Print a Hostname
-      ansible.builtin.debug:
-        msg: "Hostname = {{ansible_FQDN}}"
-        
-        - name: Demo on  register variable
-         hosts: all
-         tasks:
-            ansible.builtin.shell: uptime
-              msg: "uptime = {{uptime}}"
-              register: out
+    - name: Print a fact variable
+      debug:
+        msg: "Hostname = {{ansible_fqdn}}"
+
+- name: Demo on register variables
+  hosts: all
+  tasks:
+    - name: Run uptime command
+      ansible.builtin.shell: uptime
+      register: out
+
+    - name: Set a variable
+      ansible.builtin.set_fact:
+        UPTIME: "{{out.stdout}}"
+    
              
     
