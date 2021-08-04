@@ -1,6 +1,7 @@
 -name: Demo on a variable
 Hosts: all
-vars: google.com
+vars: 
+URL: play.google.com
 tasks: 
   -name: print a variable
     ansible.builtin.debug 
