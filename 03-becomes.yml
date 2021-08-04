@@ -1,0 +1,9 @@
+- name Install Node JS packages
+  hosts: all
+  becomes: yes
+    - name Install package node js packages
+      becomes: yes 
+      ansible.builtin.yum: Node js
+        Name: Node JS
+        state: started
+        
