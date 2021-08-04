@@ -11,8 +11,6 @@ tasks:
     
     - name: Demo on Inv variables
   hosts: all
-  vars:
-    URL: play.google.com
   tasks:
     - name: Print a Variable
       ansible.builtin.debug:
